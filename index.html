@@ -29,5 +29,31 @@
             }
         }
     });
+
+    document.getElementById("solve_button").addEventListener("click", function(event){
+        var boardString = boradToString();
+        var solution =SudokuSolver.solve(boradString);
+        if(solution){
+            stringToBoard(solution);
+        }
+        else{
+            alet("Invalid Board");
+        }
+    })
+
+    document.getElementById("clear_button").addEventListener("click",clearBoard);
+
+    function clearBoard(){
+        var tds=document.getElementById("td");
+        for(var i=0; i<tds.length; i++)
+        {
+            tds[i].innerText="";
+        }
+    }
+
+    function boradToString() {
+        var string ="";
+        var validNum
+    }
 </script>
 </html>
