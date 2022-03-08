@@ -44,7 +44,7 @@
     document.getElementById("clear_button").addEventListener("click",clearBoard);
 
     function clearBoard(){
-        var tds=document.getElementById("td");
+        var tds=document.getElementsByTagName("td");
         for(var i=0; i<tds.length; i++)
         {
             tds[i].innerText="";
@@ -53,7 +53,27 @@
 
     function boradToString() {
         var string ="";
-        var validNum
+        var validNum= /1-9/;
+        var tds=document.getElementsByTagName("td");
+        for(var i=0;i<tds.length;i++){
+            if(validNum.test(tds[i].innerText[0])){
+                string+=tds[i].innerText;
+            }
+            else{
+                string+="-";
+            }
+        }
+        return string;
+    }
+
+    function stringToBoard(string){
+        var currentCell;
+        var validNum=/1-9/;
+        var cells=string.split("");
+        var tds=document.getElementsByTagName("td");
+        for(var i=0; i<tds.length; i++){
+            currentCell=cells.shift();
+        }
     }
 </script>
 </html>
