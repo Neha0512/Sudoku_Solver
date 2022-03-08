@@ -15,4 +15,19 @@
     </div>
     
 </body>
+<script type="text/javascript">
+    document.getElementById("board").addEventListener("keyup", function(event)
+    {
+        if(event.target && event.target.nodeName == "TD"){
+            var validNum= /[1-9]/;
+            var tdE1=event.target;
+            if(tdE1.innerText.length>0 && validNum.test(tdE1.innerText[0])){
+                tdE1.innerText-tdE1.innerText[0];
+            }
+            else{
+                tdE1.innerText="";
+            }
+        }
+    });
+</script>
 </html>
